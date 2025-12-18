@@ -1,5 +1,7 @@
 class Solution {
     public static int atmost(int[] nums,int k){
+        //  same logic as the count the binary subrray sum question no 930
+        
         int oddCount=0;
         int left=0;
         int count=0;
