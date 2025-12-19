@@ -1,18 +1,36 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int n=nums.length;
-        //  hashMap for storing freq
-        HashMap<Integer,Integer> map=new HashMap<>();
-        for(int i:nums){
-            map.put(i,map.getOrDefault(i,0)+1);
-        }
-        int max=0;
-        // then iterating on the map and returning elemnent whose fre is greater the n/2
-        for(Map.Entry<Integer,Integer> entry:map.entrySet()){
-            if(entry.getValue()>(n/2)){
-            max=entry.getKey();
-            }
-        }
-        return max;
+    //   int count = 0;
+    //     int candidate = 0;
+
+    //     for (int num : nums) {
+    //         if (count == 0) {
+    //             candidate = num;
+    //         }
+    //         if (num == candidate) {
+    //             count++;
+    //         } else {
+    //             count--;
+    //         }
+    //     }
+
+    //     // candidate now is the majority element
+    //     return candidate;
+    // Moore's Voting Algorithm
+      int count=0;
+      int ele=0;
+      for(int i=0;i<nums.length;i++){
+         if(count==0){
+            count=1;
+            ele=nums[i];
+         }
+         else if(nums[i]==ele){
+            count++;
+         }
+         else{
+            count--;
+         }
+      }
+      return ele;
     }
 }
